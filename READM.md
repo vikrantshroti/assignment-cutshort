@@ -1,6 +1,7 @@
 # React Native Assignment - Cutshort
 
-This repo is assignemnt from [Cutshort](https://cutshort.io) and the ask is to design app as per [mockup](https://www.figma.com/community/file/881800490970218055).
+This repo is assignemnt from [Cutshort](https://cutshort.io) and the ask is to design app as per [mockup](https://www.figma.com/community/file/881800490970218055).\
+This [react native](https://reactnative.dev/) repo is bootstrapped with [expo](https://expo.dev/)
 
 Note 1: apk is also added to this repo.\
 Note 2: this assignment was done under time contraints.
