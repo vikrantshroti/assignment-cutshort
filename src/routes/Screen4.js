@@ -22,7 +22,7 @@ export default function Screen4({ navigation }) {
     "https://img.freepik.com/free-photo/handsome-confident-smiling-man-with-hands-crossed-chest_176420-18743.jpg";
 
   return (
-    <View style={{ display: "flex", flex: 1, backgroundColor: "#010A43" }}>
+    <View style={styles.mainContainer}>
       <Image
         source={{
           uri: profile1,
@@ -90,59 +90,17 @@ export default function Screen4({ navigation }) {
           },
         ]}
       />
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          width: "100vw",
-          height: "40%",
-          borderTopLeftRadius: 35,
-          borderTopRightRadius: 35,
-          position: "absolute",
-          bottom: 0,
-          backgroundColor: "#192259",
-        }}
-      >
+      <View style={styles.bottomContainer}>
         <Image
           source={{
             uri: profile1,
           }}
-          style={{
-            width: 80,
-            height: 80,
-            borderRadius: 80 / 2,
-            overflow: "hidden",
-            marginTop: 20,
-          }}
+          style={styles.img1}
         />
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: 16,
-            paddingTop: 10,
-          }}
-        >
-          Adeleke Adeyanju
-        </Text>
-        <Text style={{ color: "white", fontSize: 14, paddingTop: 6 }}>
-          (+234) 905 1694 275
-        </Text>
+        <Text style={styles.text1}>Adeleke Adeyanju</Text>
+        <Text style={styles.text2}>(+234) 905 1694 275</Text>
         <TouchableOpacity
-          style={{
-            height: "20%",
-            backgroundColor: "#192259",
-            borderRadius: 5,
-            borderWidth: 1,
-            borderColor: "white",
-            width: "40%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 5,
-            marginTop: 15,
-          }}
+          style={styles.control}
           onPress={() => navigation.navigate("Screen5")}
         >
           <Text style={{ color: "white" }}>Continue</Text>
@@ -153,6 +111,7 @@ export default function Screen4({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  mainContainer: { display: "flex", flex: 1, backgroundColor: "#010A43" },
   largeImage: {
     width: 80,
     height: 80,
@@ -174,5 +133,44 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "white",
     position: "absolute",
+  },
+  bottomContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100vw",
+    height: "40%",
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "#192259",
+  },
+  img1: {
+    width: 80,
+    height: 80,
+    borderRadius: 80 / 2,
+    overflow: "hidden",
+    marginTop: 20,
+  },
+  text1: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
+    paddingTop: 10,
+  },
+  text2: { color: "white", fontSize: 14, paddingTop: 6 },
+  control: {
+    height: "20%",
+    backgroundColor: "#192259",
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "white",
+    width: "40%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 5,
+    marginTop: 15,
   },
 });

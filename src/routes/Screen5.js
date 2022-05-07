@@ -1,40 +1,10 @@
-import {
-  View,
-  Text,
-  Dimensions,
-  StyleSheet,
-  Button,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function Screen5({ navigation }) {
   return (
-    <View style={{ display: "flex", flex: 1, backgroundColor: "#00020D" }}>
-      <View
-        style={{
-          display: "flex",
-          width: "100vw",
-          height: "85%",
-          borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
-          position: "absolute",
-          bottom: 0,
-          backgroundColor: "#010A43",
-        }}
-      >
-        <Text
-          style={{
-            display: "flex",
-            color: "white",
-            fontSize: "30px",
-            padding: 20,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          ₦ 110,000
-        </Text>
-
+    <View style={styles.container}>
+      <View style={styles.subContainer}>
+        <Text style={styles.text1}>₦ 110,000</Text>
         <View style={{ display: "flex", flex: 1 }}>
           <View style={styles.cellParent}>
             <Text style={styles.cell}>1</Text>
@@ -57,20 +27,7 @@ export default function Screen5({ navigation }) {
             <Text style={styles.cell}>x</Text>
           </View>
           <TouchableOpacity
-            style={{
-              height: "12%",
-              backgroundColor: "#192259",
-              borderRadius: 5,
-              borderWidth: 1,
-              borderColor: "white",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 5,
-              marginTop: 15,
-              marginLeft: "30%",
-              marginRight: "30%",
-            }}
+            style={styles.control}
             onPress={() => navigation.navigate("Screen1")}
           >
             <Text style={{ color: "white" }}>Send Money</Text>
@@ -93,5 +50,38 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     height: "20%",
+  },
+  container: { display: "flex", flex: 1, backgroundColor: "#00020D" },
+  subContainer: {
+    display: "flex",
+    width: "100vw",
+    height: "85%",
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "#010A43",
+  },
+  text1: {
+    display: "flex",
+    color: "white",
+    fontSize: "30px",
+    padding: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  control: {
+    height: "12%",
+    backgroundColor: "#192259",
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 5,
+    marginTop: 15,
+    marginLeft: "30%",
+    marginRight: "30%",
   },
 });

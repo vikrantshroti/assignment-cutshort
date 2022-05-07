@@ -1,7 +1,3 @@
-// cost input box -> click -> takes you to amount overlay screen 4
-// 2 buttons -> both buttons -> take you to screen 5
-// bottom sheet with list
-
 import React, { useCallback, useMemo, useRef, useEffect } from "react";
 import {
   Image,
@@ -9,16 +5,12 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  Button,
-  TextInput,
   FlatList,
   TouchableOpacity,
 } from "react-native";
 import RBSheet from "react-native-raw-bottom-sheet";
 
 export default function Screen3({ navigation }) {
-  // https://github.com/nysamnang/react-native-raw-bottom-sheet
-
   const data = [
     {
       id: "1",
@@ -68,47 +60,28 @@ export default function Screen3({ navigation }) {
     const bgCOlor = index % 2 ? "#010A43" : "#192259";
     return (
       <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          padding: 10,
-          backgroundColor: bgCOlor,
-          height: "12vh",
-          width: "100vw",
-        }}
+        style={[
+          styles.itemContainer,
+          {
+            backgroundColor: bgCOlor,
+          },
+        ]}
       >
         <Image
           source={{
             uri: imgUrl,
           }}
-          style={{
-            width: 46,
-            height: 46,
-            borderRadius: 46 / 2,
-            overflow: "hidden",
-            marginTop: 10,
-          }}
+          style={styles.itemImg}
         />
-        <View
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "60vw",
-            padding: 10,
-          }}
-        >
+        <View style={styles.itemControlContainer}>
           <Text style={{ color: "white" }}>{item.name}</Text>
           <TouchableOpacity
-            style={{
-              backgroundColor: item.txn_status_color,
-              padding: 2,
-              borderRadius: 10,
-              width: "30%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              marginTop: 5,
-            }}
+            style={[
+              styles.itemStatus,
+              {
+                backgroundColor: item.txn_status_color,
+              },
+            ]}
           >
             <Text style={{ color: "white" }}>{item.txn_status}</Text>
           </TouchableOpacity>
@@ -121,35 +94,12 @@ export default function Screen3({ navigation }) {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        padding: 24,
-        paddingTop: 50,
-        backgroundColor: "#010A43",
-      }}
-    >
+    <View style={styles.mainContainer}>
       <Text style={{ color: "white", fontSize: 14 }}>
         Your current balance is{" "}
       </Text>
-      <Text
-        style={{
-          color: "white",
-          fontSize: 28,
-          fontWeight: "bold",
-          paddingTop: 10,
-        }}
-      >
-        ₦ 2,00,000
-      </Text>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          paddingTop: 40,
-          justifyContent: "space-between",
-        }}
-      >
+      <Text style={styles.text1}>₦ 2,00,000</Text>
+      <View style={styles.text2}>
         <TouchableOpacity
           style={styles.btnContainer}
           onPress={() => navigation.navigate("Screen4")}
@@ -201,5 +151,52 @@ const styles = StyleSheet.create({
     borderColor: "white",
     backgroundColor: "#010A43",
     padding: 12,
+  },
+  itemContainer: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 10,
+    height: "12vh",
+    width: "100vw",
+  },
+  itemImg: {
+    width: 46,
+    height: 46,
+    borderRadius: 46 / 2,
+    overflow: "hidden",
+    marginTop: 10,
+  },
+  itemControlContainer: {
+    display: "flex",
+    flexDirection: "column",
+    width: "60vw",
+    padding: 10,
+  },
+  itemStatus: {
+    padding: 2,
+    borderRadius: 10,
+    width: "30%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 5,
+  },
+  mainContainer: {
+    flex: 1,
+    padding: 24,
+    paddingTop: 50,
+    backgroundColor: "#010A43",
+  },
+  text1: {
+    color: "white",
+    fontSize: 28,
+    fontWeight: "bold",
+    paddingTop: 10,
+  },
+  text2: {
+    display: "flex",
+    flexDirection: "row",
+    paddingTop: 40,
+    justifyContent: "space-between",
   },
 });
